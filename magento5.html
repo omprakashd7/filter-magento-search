@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Designers Directory</title>
+  <style>
+    .wt-main-filter-serach-section {
+     
+      background: #fff;
+      width: 90%;
+      margin: 0 auto;
+    }
+
+    .wt-main-filter-serach-section .tabs {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      margin-bottom: 30px;
+      border: 1px solid #ccc;
+      width: 40%;
+      margin: 0 auto;
+    }
+
+    .wt-main-filter-serach-section .tabs button {
+      flex: 1;
+      padding: 12px 20px;
+      background: #fff;
+      border: none;
+      border-right: 1px solid #ccc;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      text-transform: uppercase;
+    }
+
+    .wt-main-filter-serach-section .tabs button:last-child {
+      border-right: none;
+    }
+
+    .wt-main-filter-serach-section .tabs button.active {
+      background: #000;
+      color: #fff;
+    }
+
+    .wt-main-filter-serach-section .alphabet-filter {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      padding: 20px 0;
+      border-bottom: 1px solid #ccc;
+      font-size: 14px;
+      margin-bottom: 30px;
+    }
+
+    .wt-main-filter-serach-section .alphabet-filter button {
+      border: none;
+      background: none;
+      cursor: pointer;
+      font-size: 17px;
+      color: #222;
+      font-weight: 500;
+    }
+
+    .wt-main-filter-serach-section .alphabet-filter button:hover {
+      text-decoration: underline;
+    }
+
+    .wt-main-filter-serach-section .designer-section {
+      display: none;
+    }
+
+    .wt-main-filter-serach-section .designer-section.active {
+      display: block;
+    }
+
+    .wt-main-filter-serach-section div#letter-09 h3 {
+      padding: 0;
+      margin: 0;
+    }
+
+    .wt-main-filter-serach-section .letter-block h3 {
+      
+      font-size: 22px;
+      margin-bottom: 10px;
+     
+      padding-bottom: 5px;
+    }
+
+    .wt-main-filter-serach-section .letter-block ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .wt-main-filter-serach-section .letter-block ul li {
+      margin-bottom: 6px;
+    }
+
+    .wt-main-filter-serach-section .letter-block ul li a {
+      text-decoration: none;
+      color: #000;
+      font-size: 15px;
+    }
+
+    .wt-main-filter-serach-section .letter-block ul li a:hover {
+      text-decoration: underline;
+    }
+
+    .wt-main-filter-serach-section #searchBox {
+      margin-top: 8px;
+      margin-bottom: 30px;
+      display: none;
+      text-align: center;
+    }
+
+    .wt-main-filter-serach-section #designerSearch {
+      padding: 10px 16px;
+      width: 100%;
+      max-width: 400px;
+      font-size: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .wt-main-filter-serach-section .designer-grid .letter-block{
+       break-inside: avoid-column;
+       margin-bottom: 30px;
+    }
+    .wt-main-filter-serach-section .designer-grid {
+        column-count: 4;
+    }
+
+/* For mobile view (screen width 768px or less), 1 column */
+@media only screen and (max-width: 768px) {
+  .wt-main-filter-serach-section .designer-grid {
+    column-count: 1;
+  }
+  .wt-main-filter-serach-section .letter-block h3{
+    font-size: 24px;
+  }
+}
+
+/* For tablet/medium screens, adjust the number of columns */
+@media (max-width: 1024px) {
+  .wt-main-filter-serach-section .designer-grid {
+    column-count: 1;
+  }
+}
+
+  </style>
+</head>
+<body>
+
+    <div class="wt-main-filter-serach-section">
+  <div class="tabs">
+    <button data-tab="azSection" class="active">A–Z Designers</button>
+    <button data-tab="searchSection">Search by Name</button>
+  </div>
+
+  <div id="searchBox">
+    <input type="text" id="designerSearch" placeholder="Search designers...">
+  </div>
+
+  <!-- A–Z SECTION -->
+  <div id="azSection" class="designer-section active">
+    <div class="alphabet-filter" id="alphabetFilter"></div>
+    <div class="designer-grid" id="azContent"></div>
+  </div>
+
+  <!-- SEARCH SECTION -->
+  <div id="searchSection" class="designer-section"></div>
+</div>
+  <script>
+    const tabs = document.querySelectorAll('.tabs button');
+    const searchBox = document.getElementById('searchBox');
+    const designerSearch = document.getElementById('designerSearch');
+    const searchSection = document.getElementById('searchSection');
+    const sections = document.querySelectorAll('.designer-section');
+    const azContent = document.getElementById('azContent');
+    const alphabetFilter = document.getElementById('alphabetFilter');
+
+    const groupedDesigners = {
+     '0-9': ['0711 Tbilisi', '111Skin', '12 STOREEZ', '16ARLINGTON', '21SIX', '3.1 Phillip Lim', '7 DAYS ACTIVE', '94 Jewelry'],
+     'A': ['Akris', 'Alexander McQueen', 'Alaïa', 'Anya Hindmarch', 'Acne Studios'],
+    
+'B': ['Balenciaga', 'Bottega Veneta', 'Burberry', 'Bvlgari', 'Brunello Cucinelli'],
+'C': ['Chanel', 'Celine', 'Christian Dior', 'Coach', 'Chloé'],
+'D': ['D\'Accori', 'D1 Milano', 'Dahlia Bianca', 'Dal the Brand', 'Dalood', 'Damas', 'Damson Madder', 'Daname', 'Dananeer', 'DANEH'],
+
+'F': ['Fendi', 'Ferragamo', 'Filippa K', 'Fear of God', 'Franck Muller'],
+'G': ['Gucci', 'Givenchy', 'Giorgio Armani', 'Goldgenie', 'Gaultier'],
+'H': ['Hermès', 'Hugo Boss', 'H&M', 'Haider Ackermann', 'Harris Tweed'],
+'I': ['Isabel Marant', 'IWC', 'Iro Paris', 'Insoles', 'Indigo'],
+'J': ['Jacquemus', 'Jimmy Choo', 'Jil Sander', 'Jo Malone', 'John Galliano'],
+'K': ['Kenzo', 'Karl Lagerfeld', 'Kendall + Kylie', 'Khaite', 'Ksubi'],
+'L': ['L\'AFSHAR', 'L\'Alingi', 'L\'Artisan Parfumeur', 'L\'Atelier Nawbar', 'L\'azurde', 'L\'IDEE WOMAN', 'La Bouche Rouge', 'La Maise Studio', 'La Mer', 'La Prairie'],
+'M': ['Miu Miu', 'Montblanc', 'Michael Kors', 'Marni', 'Max Mara'],
+'N': ['Nike', 'Nina Ricci', 'Narciso Rodriguez', 'Nanushka', 'Nodaleto'],
+'O': ['Off-White', 'Oscar de la Renta', 'Olivier Rousteing', 'Old Navy', 'Orlebar Brown'],
+'P': ['Prada', 'Puma', 'Paul Smith', 'Phillip Lim', 'Public School'],
+'Q': ['Qui Prive', 'Quicksilver', 'Qasimi', 'Quilted Koala', 'Quay Australia'],
+'R': ['Rabanne', 'Rabanne Beauty', 'Rachel Gilbert', 'Racil', 'Rae Morris', 'Rag & Bone', 'Ragbag'],
+'S': ['Saint Laurent', 'Sandro', 'Salvatore Ferragamo', 'Stone Island', 'Stella McCartney'],
+'T': ['Tom Ford', 'The Row', 'Tory Burch', 'Thom Browne', 'The North Face'],
+'U': ['Uniqlo', 'Under Armour', 'Ulla Johnson', 'Urban Outfitters', 'Umbra'],
+'V': ['Valentino', 'Versace', 'Vans', 'Viktor & Rolf', 'Vivienne Westwood'],
+'W': ['Woolrich', 'Wanda Nylon', 'We11done', 'WatchBox', 'WOMAN by Ralph Lauren'],
+'X': ['Xander Zhou', 'XOXO', 'Xenia Adonts', 'Xit'],
+'Y': ['Yves Saint Laurent', 'Y-3', 'Yoon Ahn', 'YSL Beauty', 'Yumi'],
+'Z': ['Zara', 'Zegna', 'Zadig & Voltaire', 'Zara Home', 'Zanellato']
+
+    };
+
+    function renderAZContent() {
+      azContent.innerHTML = '';
+      for (const letter in groupedDesigners) {
+        const block = document.createElement('div');
+        block.className = 'letter-block';
+        block.id = `letter-${letter.replace(/\W/g, '')}`;
+
+        const title = document.createElement('h3');
+        title.textContent = letter;
+        block.appendChild(title);
+
+        const list = document.createElement('ul');
+        groupedDesigners[letter].forEach(name => {
+          const li = document.createElement('li');
+          li.innerHTML = `<a href="#">${name}</a>`;
+          list.appendChild(li);
+        });
+
+        block.appendChild(list);
+        azContent.appendChild(block);
+      }
+    }
+
+    function renderAlphabetFilter() {
+      alphabetFilter.innerHTML = '';
+      for (const letter in groupedDesigners) {
+        const btn = document.createElement('button');
+        btn.textContent = letter;
+        btn.dataset.scrollTo = `letter-${letter.replace(/\W/g, '')}`;
+        alphabetFilter.appendChild(btn);
+      }
+    }
+
+    alphabetFilter.addEventListener('click', e => {
+      if (e.target.tagName === 'BUTTON') {
+        const target = document.getElementById(e.target.dataset.scrollTo);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+    });
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(btn => btn.classList.remove('active'));
+        tab.classList.add('active');
+
+        sections.forEach(sec => sec.classList.remove('active'));
+        searchBox.style.display = 'none';
+
+        const selected = tab.dataset.tab;
+        document.getElementById(selected).classList.add('active');
+
+        if (selected === 'searchSection') {
+          searchBox.style.display = 'block';
+          designerSearch.focus();
+          designerSearch.dispatchEvent(new Event('input'));
+        }
+      });
+    });
+
+    function renderGroupedResults(filteredData) {
+      searchSection.innerHTML = '<div class="designer-grid"></div>';
+      const grid = searchSection.querySelector('.designer-grid');
+
+      for (const letter in filteredData) {
+        if (filteredData[letter].length > 0) {
+          const block = document.createElement('div');
+          block.className = 'letter-block';
+
+          const title = document.createElement('h3');
+          title.textContent = letter;
+          block.appendChild(title);
+
+          const list = document.createElement('ul');
+          filteredData[letter].forEach(name => {
+            const li = document.createElement('li');
+            li.innerHTML = `<a href="#">${name}</a>`;
+            list.appendChild(li);
+          });
+
+          block.appendChild(list);
+          grid.appendChild(block);
+        }
+      }
+    }
+
+    designerSearch.addEventListener('input', () => {
+      const query = designerSearch.value.toLowerCase();
+      const filtered = {};
+
+      for (const letter in groupedDesigners) {
+        filtered[letter] = groupedDesigners[letter].filter(name =>
+          name.toLowerCase().includes(query)
+        );
+      }
+
+      renderGroupedResults(filtered);
+    });
+
+    renderAZContent();
+    renderAlphabetFilter();
+  </script>
+
+</body>
+</html>
