@@ -4,136 +4,240 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>andthegirlwashappy</title>
-  <!-- <link rel="stylesheet" href="styles.css" /> -->
- 
+
   <link href="https://fonts.googleapis.com/css2?family=Philosopher&family=Great+Vibes&family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
   <style>
-   body {
-  margin: 0;
-  font-family: 'Montserrat', sans-serif;
-  background-color: #fff;
-  color: #111;
-}
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-.layout-wrapper {
-  display: flex;
-  flex-direction: row;
-  height: 100vh;
-  width: 95%;
-}
 
-.intro-section {
-  flex: 1;
-  padding: 60px 80px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
+    header {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      padding: 20px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      /* background: rgba(0, 0, 0, 0.6); */
+      z-index: 1000;
+    }
 
-.image-section {
-  flex: 1;
-  overflow: hidden;
-}
+    .webtm-logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: white;
+    }
 
-.image-section img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+    .webtm-breadcrumb-menu {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      position: relative;
+    }
 
-.person-name {
-  font-size: 60px;
-  font-family: 'Philosopher', sans-serif;
-  margin: 0;
-}
+    .webtm-menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      z-index: 2000;
+    }
 
-.divider-line {
-  width: 40px;
-  height: 2px;
-  background-color: #111;
-  margin: 16px 0;
-}
+    .webtm-menu-toggle span {
+      height: 3px;
+      width: 25px;
+      background: white;
+      margin: 4px 0;
+      transition: 0.3s;
+    }
 
-.job-title {
-  font-size: 18px;
-  color: #444;
-  margin-bottom: 30px;
-}
+    nav.webtm-menu {
+      display: flex;
+      gap: 20px;
+    }
 
-.intro-text {
-  font-size: 16px;
-  color: #333;
-  line-height: 1.7;
-  margin-bottom: 20px;
-  max-width: 600px;
-}
+    nav.webtm-menu a {
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+    }
 
-.signature-text {
-  font-family: 'Great Vibes', cursive;
-  font-size: 28px;
-  margin-top: 20px;
-  margin-bottom: 30px;
-}
+    nav.webtm-menu.show {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 50px;
+      right: 0;
+      background: rgba(0, 0, 0, 0.9);
+      padding: 15px 25px;
+      border-radius: 10px;
+      width: max-content;
+    }
 
-.wt-cta-button {
-  display: inline-block;
-  padding: 14px 30px;
-  background-color: #000;
-  color: #fff;
-  border-radius: 30px;
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 500;
-  transition: background-color 0.3s;
-  max-width:max-content;
-  text-align: center;
-  white-space: nowrap;
-}
+    @media (max-width: 768px) {
+      .webtm-menu-toggle {
+        display: flex;
+      }
 
-.cta-button:hover {
-  background-color: #333;
-}
+      nav.webtm-menu {
+        display: none;
+        flex-direction: column;
+      }
+    }
 
-/* ✅ Mobile Responsive Styles */
-@media (max-width: 768px) {
-  .layout-wrapper {
-    flex-direction: column;
-    height: auto;
-    width: 100%;
-  }
+    .webtm-main-banner-container {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+    }
 
-  .intro-section {
-    padding: 40px 20px;
-  }
+    .webtm-banner-main-img {
+      width: 100%;
+      height: 100vh;
+      object-fit: cover;
+    }
 
-  .person-name {
-    font-size: 40px;
-  }
+    .webtm-main-content {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      color: white;
+      left: 10%;
+      right: 10%;
+      text-align: left;
+    }
 
-  .intro-text {
-    font-size: 15px;
-    max-width: 100%;
-  }
+    .webtm-banner-heading {
+      font-size: 4vw;
+    }
 
-  .cta-button {
-    width: 100%;
-   max-width:max-content;
-    padding: 14px 20px;
-    white-space: normal;
-  }
+    .webtm-main-banner-para {
+      font-size: 1.2vw;
+      line-height: 1.6em;
+      max-width: 700px;
+      margin: 10px 0;
+    }
 
-  .image-section {
-    height: 300px;
-  }
+    .webtm-btn {
+      width: 180px;
+      height: 54px;
+      font-size: 17px;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      background-color: white;
+      color: black;
+    }
 
-  .image-section img {
-    height: 100%;
-    object-fit: cover;
-  }
-}
+    @media (max-width: 768px) {
+      .webtm-main-content {
+        top: 55%;
+        left: 5%;
+        right: 5%;
+        text-align: center;
+      }
 
-/* second section css */
- /* Section Heading */
+      .webtm-banner-heading {
+        font-size: 28px;
+      }
+
+      .webtm-main-banner-para {
+        font-size: 16px;
+        width: 100%;
+      }
+
+      .webtm-btn {
+        width: 160px;
+        height: 48px;
+      }
+    }
+
+    .layout-wrapper {
+      display: flex;
+      flex-direction: row;
+      height: auto;
+      width: 95%;
+      margin: auto;
+      padding-top: 40px;
+    }
+
+    .intro-section {
+      flex: 1;
+      padding: 60px 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .image-section {
+      flex: 1;
+      overflow: hidden;
+    }
+
+    .image-section img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .person-name {
+      font-size: 60px;
+      font-family: 'Philosopher', sans-serif;
+      margin: 0;
+    }
+
+    .divider-line {
+      width: 40px;
+      height: 2px;
+      background-color: #111;
+      margin: 16px 0;
+    }
+
+    .intro-text {
+      font-size: 16px;
+      color: #333;
+      line-height: 1.7;
+      margin-bottom: 20px;
+      max-width: 600px;
+    }
+
+    .wt-cta-button {
+      display: inline-block;
+      padding: 14px 30px;
+      background-color: #000;
+      color: #fff;
+      border-radius: 30px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      max-width: max-content;
+      white-space: nowrap;
+    }
+
+    @media (max-width: 768px) {
+      .layout-wrapper {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .intro-section {
+        padding: 40px 20px;
+      }
+
+      .person-name {
+        font-size: 40px;
+      }
+
+      .intro-text {
+        font-size: 15px;
+        max-width: 100%;
+      }
+    }
+
     .custom-section-heading {
       text-align: center;
       font-size: 36px;
@@ -143,10 +247,9 @@
       color: #222;
     }
 
-    /* Image Grid Section */
     .custom-image-wrapper {
       display: grid;
-      grid-template-columns: repeat(4, 1fr); /* 4 columns */
+      grid-template-columns: repeat(4, 1fr);
       gap: 20px;
       padding: 20px 40px 60px;
       max-width: 1200px;
@@ -173,7 +276,6 @@
       transform: scale(1.05);
     }
 
-    /* Responsive for small screens */
     @media (max-width: 992px) {
       .custom-image-wrapper {
         grid-template-columns: repeat(2, 1fr);
@@ -191,7 +293,6 @@
       }
     }
 
-    /* footer css */
     .wbet-cstm-footer-container {
       background-color: #fafafa;
       padding: 60px 20px 30px;
@@ -254,144 +355,12 @@
         margin-bottom: 30px;
       }
     }
-
-
-     header {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      padding: 20px 30px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: transparent;
-      z-index: 1000;
-    }
-
-    .webtm-logo {
-      font-size: 24px;
-      font-weight: bold;
-      color: white;
-    }
-
-    .webtm-breadcrumb-menu {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      position: relative;
-    }
-
-    .webtm-menu-toggle {
-      display: flex;
-      flex-direction: column;
-      cursor: pointer;
-      z-index: 2000;
-    }
-
-    .webtm-menu-toggle span {
-      height: 3px;
-      width: 25px;
-      background: white;
-      margin: 4px 0;
-      transition: 0.3s;
-    }
-
-    nav.webtm-menu {
-      display: none;
-      flex-direction: column;
-      position: absolute;
-      top: 50px;
-      right: 0;
-      background: rgba(0, 0, 0, 0.85);
-      padding: 15px 25px;
-      border-radius: 10px;
-    }
-
-    nav.webtm-menu a {
-      color: white;
-      padding: 10px 0;
-      text-decoration: none;
-      white-space: nowrap;
-    }
-
-    nav.webtm-menu.show {
-      display: flex;
-    }
-
-    .webtm-main-banner-container {
-      position: relative;
-      width: 100%;
-      height: 100vh;
-      overflow: hidden;
-    }
-
-    .webtm-banner-main-img {
-      width: 100%;
-      height: 100vh;
-      object-fit: cover;
-    }
-
-    .webtm-main-content {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      color: white;
-      font-family: sans-serif;
-      left: 10%;
-      right: 10%;
-      text-align: left;
-    }
-
-    .webtm-banner-heading {
-      font-size: 4vw;
-    }
-
-    .webtm-main-banner-para {
-      font-size: 1.2vw;
-      line-height: 1.6em;
-      max-width: 700px;
-      margin: 10px 0;
-    }
-
-    .webtm-btn {
-      width: 180px;
-      height: 54px;
-      font-size: 17px;
-      border-radius: 50px;
-      border: none;
-      cursor: pointer;
-      background-color: white;
-      color: black;
-    }
-
-    @media (max-width: 768px) {
-      .webtm-main-content {
-        top: 55%;
-        left: 5%;
-        right: 5%;
-        text-align: center;
-      }
-
-      .webtm-banner-heading {
-        font-size: 28px;
-      }
-
-      .webtm-main-banner-para {
-        font-size: 16px;
-        width: 100%;
-      }
-
-      .webtm-btn {
-        width: 160px;
-        height: 48px;
-      }
-    }
-    
   </style>
 </head>
 <body>
-    <header>
-  <div class="webtm-logo">andthegirlwashappy</div>
+
+<header>
+  <div class="webtm-logo">𝘈𝘯𝘥𝘛𝘩𝘦𝘎𝘪𝘳𝘭𝘞𝘢𝘴𝘏𝘢𝘱𝘱𝘺</div>
   <div class="webtm-breadcrumb-menu">
     <div class="webtm-menu-toggle" id="menu-toggle">
       <span></span>
@@ -400,99 +369,71 @@
     </div>
     <nav class="webtm-menu" id="menu">
       <a href="#">Home</a>
-      <a href="#">Category</a>
-      <a href="#">Page</a>
+      <a href="#about-me">About Me</a>
+      <a href="#my-projects">My Work</a>
     </nav>
   </div>
 </header>
+
 <section class="webtm-main-banner-container">
   <img class="webtm-banner-main-img" src="./asset/IMG_8526.jpg" alt="Banner Image" />
   <div class="webtm-main-content">
     <h1 class="webtm-banner-heading">I'm a Creative Artist</h1>
-    <p class="webtm-main-banner-para">
-      We have created an awesome theme that will help designers, developers and companies create websites for their startups quickly and easily.
-    </p>
+    <p class="webtm-main-banner-para">We have created an awesome theme that will help designers, developers and companies create websites for their startups quickly and easily.</p>
     <button class="webtm-btn">Who I am</button>
   </div>
 </section>
 
-  <div class="layout-wrapper" id="about-me">
-    <div class="intro-section">
-      <h1 class="person-name">About me</h1>
-      <div class="divider-line"></div>
-      <p class="intro-text">
-       Bre Smith is an American painter and a proud Los Angeles Native who has traveled the world and lived in numerous major cities throughout the United States. She invites viewers to peel back the layers of her work and of themselves, to explore the idyllic notions of an earlier time or the present. The colorful imagery, both graphic and painterly, is dense and coded, mimicking dream sequences. Bre paints in layers — many layers, filled with colors and emotions.
-
-Peel back the layers; feel something, feel nothing, enjoy it, or wonder how she got there. Art is Bre’s way to share a bit of herself with the world and to show gratitude to the universe. Acrylic paints, oil pastels, charcoal mediums, and a variety of musical genres assist in sharing her art. Painting is Bre’s connection to others, and we can never be connected enough.
-      </p>
-      <a href="#" class="wt-cta-button">Learn More About Me ➞</a>
-    </div>
-    <div class="image-section">
-      <img src="./asset/Photo-16.jpg" alt="Amanda Hawk">
-    </div>
+<div class="layout-wrapper" id="about-me">
+  <div class="intro-section">
+    <h1 class="person-name">About me</h1>
+    <div class="divider-line"></div>
+    <p class="intro-text">
+      Bre Smith is an American painter and a proud Los Angeles Native who has traveled the world and lived in numerous major cities throughout the United States. She invites viewers to peel back the layers of her work and of themselves, to explore the idyllic notions of an earlier time or the present. The colorful imagery, both graphic and painterly, is dense and coded, mimicking dream sequences. Bre paints in layers — many layers, filled with colors and emotions.
+      <br><br>
+      Peel back the layers; feel something, feel nothing, enjoy it, or wonder how she got there. Art is Bre’s way to share a bit of herself with the world and to show gratitude to the universe.
+    </p>
+    <a href="#" class="wt-cta-button">Learn More About Me ➞</a>
   </div>
+  <div class="image-section">
+    <img src="./asset/Photo-16.jpg" alt="Amanda Hawk">
+  </div>
+</div>
 
-  <!-- second section -->
-
-  <div id="my-projects"> <h2 class="custom-section-heading">My Projects</h2>
-
+<div id="my-projects">
+  <h2 class="custom-section-heading">My Projects</h2>
   <div class="custom-image-wrapper">
-    <!-- Row 1 -->
-    <div class="custom-image-box">
-      <img src="./asset/IMG_2949.jpg" alt="Image 1" />
-    </div>
-    <div class="custom-image-box">
-      <img src="./asset/IMG_2952.jpg" alt="Image 2" />
-    </div>
-    <div class="custom-image-box">
-      <img src="./asset/IMG_4609.jpg" alt="Image 3" />
-    </div>
-    <div class="custom-image-box">
-      <img src="./asset/IMG_8570.JPG" alt="Image 4" />
-    </div>
+    <div class="custom-image-box"><img src="./asset/IMG_2949.jpg" alt="Image 1" /></div>
+    <div class="custom-image-box"><img src="./asset/IMG_2952.jpg" alt="Image 2" /></div>
+    <div class="custom-image-box"><img src="./asset/IMG_4609.jpg" alt="Image 3" /></div>
+    <div class="custom-image-box"><img src="./asset/IMG_8570.JPG" alt="Image 4" /></div>
+    <div class="custom-image-box"><img src="./asset/Photo-16.jpg" alt="Image 5" /></div>
+    <div class="custom-image-box"><img src="./asset/Copy of IMG_2946.jpg" alt="Image 6" /></div>
+    <div class="custom-image-box"><img src="./asset/IMG_1737.jpg" alt="Image 7" /></div>
+    <div class="custom-image-box"><img src="./asset/IMG_1735.jpg" alt="Image 8" /></div>
+  </div>
+</div>
 
-    <!-- Row 2 -->
-    <div class="custom-image-box">
-      <img src="./asset/Photo-16.jpg" alt="Image 5" />
+<footer class="wbet-cstm-footer-container">
+  <div class="wbet-cstm-footer-grid">
+    <div class="wbet-cstm-footer-column">
+      <h4>Interested in a Custom Piece?</h4>
+      <p>Happy to chat about a client’s wishes.</p>
+      <p><strong>bresmithart@gmail.com</strong></p>
     </div>
-    <div class="custom-image-box">
-      <img src="./asset/Copy of IMG_2946.jpg" alt="Image 6" />
-    </div>
-    <div class="custom-image-box">
-      <img src="./asset/IMG_1737.jpg" alt="Image 7" />
-    </div>
-    <div class="custom-image-box">
-      <img src="./asset/IMG_1735.jpg" alt="Image 8" />
+    <div class="wbet-cstm-footer-column wbet-cstm-footer-links">
+      <h4>Bresmith</h4>
+      <a href="#">Home</a>
+      <a href="#about-me">About Me</a>
+      <a href="#my-projects">My Work</a>
     </div>
   </div>
+  <div class="wbet-cstm-footer-bottom">
+    ©2025 BRESMITH — DEVELOPED BY <a href="https://webiators.com/">WEBIATORS</a>
   </div>
+</footer>
 
-
-  <footer class="wbet-cstm-footer-container">
-    <div class="wbet-cstm-footer-grid">
-      <!-- Column 1: Inquiry -->
-      <div class="wbet-cstm-footer-column">
-        <h4>Interested in a Custom Piece?</h4>
-        <p>Happy to chat about a client’s wishes.</p>
-        <p><strong>bresmithart@gmail.com</strong></p>
-      </div>
-
-      <!-- Column 2: Navigation -->
-      <div class="wbet-cstm-footer-column wbet-cstm-footer-links">
-        <h4>Bresmith</h4>
-        <a href="#">Home</a>
-        <a href="#about-me">About Me</a>
-        <a href="#my-projects">My Work</a>
-      </div>
-    </div>
-
-    <!-- Bottom Note -->
-    <div class="wbet-cstm-footer-bottom">
-      ©2025 BRESMITH — DEVELOPED BY <a href="https://webiators.com/"> WEBIATORS</a>
-    </div>
-  </footer>
-
-  <script>
+<script>
   const toggle = document.getElementById("menu-toggle");
   const menu = document.getElementById("menu");
 
