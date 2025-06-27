@@ -17,7 +17,7 @@
       gap: 0;
       margin-bottom: 30px;
       border: 1px solid #ccc;
-      width: 40%;
+      width: 30%;
       margin: 0 auto;
     }
 
@@ -27,7 +27,7 @@
       background: #fff;
       border: none;
       border-right: 1px solid #ccc;
-      font-size: 14px;
+      font-size: 12px;
       font-weight: 600;
       cursor: pointer;
       text-transform: uppercase;
@@ -38,7 +38,7 @@
     }
 
     .wt-main-filter-serach-section .tabs button.active {
-      background: #000;
+      background: #313030;
       color: #fff;
     }
 
@@ -80,7 +80,7 @@
     }
 
     .wt-main-filter-serach-section .letter-block h3 {
-      
+      margin: 0;
       font-size: 22px;
       margin-bottom: 10px;
      
@@ -99,7 +99,7 @@
     .wt-main-filter-serach-section .letter-block ul li a {
       text-decoration: none;
       color: #000;
-      font-size: 15px;
+      font-size: 17px;
     }
 
     .wt-main-filter-serach-section .letter-block ul li a:hover {
@@ -137,6 +137,9 @@
   .wt-main-filter-serach-section .letter-block h3{
     font-size: 24px;
   }
+  .wt-main-filter-serach-section .tabs{
+     width: 60%;
+  }
 }
 
 /* For tablet/medium screens, adjust the number of columns */
@@ -144,7 +147,9 @@
   .wt-main-filter-serach-section .designer-grid {
     column-count: 1;
   }
+
 }
+
 
   </style>
 </head>
@@ -213,10 +218,10 @@
     function renderAZContent() {
       azContent.innerHTML = '';
       for (const letter in groupedDesigners) {
+       
         const block = document.createElement('div');
         block.className = 'letter-block';
         block.id = `letter-${letter.replace(/\W/g, '')}`;
-
         const title = document.createElement('h3');
         title.textContent = letter;
         block.appendChild(title);
@@ -279,7 +284,6 @@
         if (filteredData[letter].length > 0) {
           const block = document.createElement('div');
           block.className = 'letter-block';
-
           const title = document.createElement('h3');
           title.textContent = letter;
           block.appendChild(title);

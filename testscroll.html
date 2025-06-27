@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       .country-wrapper {
+          display: flex;
+          gap: 20px;
+          flex-wrap: wrap;
+        }
+
+        .location-card {
+          width: 220px;
+          padding: 20px;
+          background: #fff;
+          border: 1px solid #eee;
+          border-radius: 14px;
+          box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        }
+
+        .location-header {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-bottom: 10px;
+        }
+
+        .location-header h3 {
+          font-size: 14px;
+          font-weight: 700;
+          margin: 0;
+        }
+
+        .location-header img {
+          width: 20px;
+          height: 20px;
+        }
+
+        .location-list {
+          max-height: 150px;
+          overflow-y: auto;
+          padding: 0;
+          margin: 0;
+          list-style: none;
+        }
+
+        .location-list li {
+          padding: 6px 0;
+          border-bottom: 1px solid #f3f3f3;
+        }
+
+        /* Optional scrollbar style */
+        .location-list::-webkit-scrollbar {
+          width: 4px;
+        }
+        .location-list::-webkit-scrollbar-thumb {
+          background-color: #ff5a00;
+          border-radius: 10px;
+        }
+        .location-list::-webkit-scrollbar-track {
+           background: transparent;
+        }
+</style>
+</head>
+<body>
+    <div class="country-wrapper">
+
+  <!-- United States -->
+  <div class="location-card">
+    <div class="location-header">
+      <h3>UNITED STATES</h3>
+      <img src="usa-icon.png" alt="USA Icon">
+    </div>
+    <ul class="location-list">
+      <li>New York</li>
+      <li>Phoenix</li>
+      <li>Dallas</li>
+      <li>Miami</li>
+      <li>Las Vegas</li>
+      <li>San Francisco</li>
+      <!-- Add more to test scroll -->
+    </ul>
+  </div>
+
+ 
+</div>
+
+</body>
+</html>
