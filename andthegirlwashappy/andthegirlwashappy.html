@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Amanda Hawk Portfolio</title>
-  <link rel="stylesheet" href="styles.css" />
+  <title>andthegirlwashappy</title>
+  <!-- <link rel="stylesheet" href="styles.css" /> -->
  
   <link href="https://fonts.googleapis.com/css2?family=Philosopher&family=Great+Vibes&family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
   <style>
@@ -75,7 +75,7 @@
   margin-bottom: 30px;
 }
 
-.cta-button {
+.wt-cta-button {
   display: inline-block;
   padding: 14px 30px;
   background-color: #000;
@@ -133,17 +133,24 @@
 }
 
 /* second section css */
-.custom-image-wrapper {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-      padding: 40px;
+ /* Section Heading */
+    .custom-section-heading {
+      text-align: center;
+      font-size: 36px;
+      font-weight: 700;
+      padding-top: 40px;
+      margin-bottom: 20px;
+      color: #222;
     }
 
-    .custom-image-column {
-      display: flex;
-      flex-direction: column;
+    /* Image Grid Section */
+    .custom-image-wrapper {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr); /* 4 columns */
       gap: 20px;
+      padding: 20px 40px 60px;
+      max-width: 1200px;
+      margin: auto;
     }
 
     .custom-image-box {
@@ -151,6 +158,7 @@
       aspect-ratio: 4 / 3;
       overflow: hidden;
       border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     }
 
     .custom-image-box img {
@@ -158,19 +166,257 @@
       height: 100%;
       object-fit: cover;
       display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .custom-image-box img:hover {
+      transform: scale(1.05);
     }
 
     /* Responsive for small screens */
-    @media (max-width: 768px) {
+    @media (max-width: 992px) {
       .custom-image-wrapper {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
       }
     }
 
+    @media (max-width: 576px) {
+      .custom-section-heading {
+        font-size: 28px;
+      }
+
+      .custom-image-wrapper {
+        grid-template-columns: 1fr;
+        padding: 20px;
+      }
+    }
+
+    /* footer css */
+    .wbet-cstm-footer-container {
+      background-color: #fafafa;
+      padding: 60px 20px 30px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .wbet-cstm-footer-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .wbet-cstm-footer-column {
+      flex: 1 1 250px;
+      min-width: 200px;
+    }
+
+    .wbet-cstm-footer-column h4 {
+      font-size: 18px;
+      margin-bottom: 12px;
+      color: #111;
+    }
+
+    .wbet-cstm-footer-column p,
+    .wbet-cstm-footer-column a,
+    .wbet-cstm-footer-bottom {
+      font-size: 14px;
+      color: #777;
+      text-decoration: none;
+      line-height: 1.8;
+    }
+
+    .wbet-cstm-footer-links a {
+      display: block;
+      margin-bottom: 6px;
+      color: #777;
+    }
+
+    .wbet-cstm-footer-links a:hover {
+      color: #000;
+    }
+
+    .wbet-cstm-footer-bottom {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 13px;
+      color: #999;
+    }
+
+    @media (max-width: 768px) {
+      .wbet-cstm-footer-grid {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+      }
+
+      .wbet-cstm-footer-column {
+        margin-bottom: 30px;
+      }
+    }
+
+
+     header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 20px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: transparent;
+      z-index: 1000;
+    }
+
+    .webtm-logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: white;
+    }
+
+    .webtm-breadcrumb-menu {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      position: relative;
+    }
+
+    .webtm-menu-toggle {
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      z-index: 2000;
+    }
+
+    .webtm-menu-toggle span {
+      height: 3px;
+      width: 25px;
+      background: white;
+      margin: 4px 0;
+      transition: 0.3s;
+    }
+
+    nav.webtm-menu {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 50px;
+      right: 0;
+      background: rgba(0, 0, 0, 0.85);
+      padding: 15px 25px;
+      border-radius: 10px;
+    }
+
+    nav.webtm-menu a {
+      color: white;
+      padding: 10px 0;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    nav.webtm-menu.show {
+      display: flex;
+    }
+
+    .webtm-main-banner-container {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .webtm-banner-main-img {
+      width: 100%;
+      height: 100vh;
+      object-fit: cover;
+    }
+
+    .webtm-main-content {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      color: white;
+      font-family: sans-serif;
+      left: 10%;
+      right: 10%;
+      text-align: left;
+    }
+
+    .webtm-banner-heading {
+      font-size: 4vw;
+    }
+
+    .webtm-main-banner-para {
+      font-size: 1.2vw;
+      line-height: 1.6em;
+      max-width: 700px;
+      margin: 10px 0;
+    }
+
+    .webtm-btn {
+      width: 180px;
+      height: 54px;
+      font-size: 17px;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      background-color: white;
+      color: black;
+    }
+
+    @media (max-width: 768px) {
+      .webtm-main-content {
+        top: 55%;
+        left: 5%;
+        right: 5%;
+        text-align: center;
+      }
+
+      .webtm-banner-heading {
+        font-size: 28px;
+      }
+
+      .webtm-main-banner-para {
+        font-size: 16px;
+        width: 100%;
+      }
+
+      .webtm-btn {
+        width: 160px;
+        height: 48px;
+      }
+    }
+    
   </style>
 </head>
 <body>
-  <div class="layout-wrapper" >
+    <header>
+  <div class="webtm-logo">andthegirlwashappy</div>
+  <div class="webtm-breadcrumb-menu">
+    <div class="webtm-menu-toggle" id="menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <nav class="webtm-menu" id="menu">
+      <a href="#">Home</a>
+      <a href="#">Category</a>
+      <a href="#">Page</a>
+    </nav>
+  </div>
+</header>
+<section class="webtm-main-banner-container">
+  <img class="webtm-banner-main-img" src="./asset/IMG_8526.jpg" alt="Banner Image" />
+  <div class="webtm-main-content">
+    <h1 class="webtm-banner-heading">I'm a Creative Artist</h1>
+    <p class="webtm-main-banner-para">
+      We have created an awesome theme that will help designers, developers and companies create websites for their startups quickly and easily.
+    </p>
+    <button class="webtm-btn">Who I am</button>
+  </div>
+</section>
+
+  <div class="layout-wrapper" id="about-me">
     <div class="intro-section">
       <h1 class="person-name">About me</h1>
       <div class="divider-line"></div>
@@ -179,7 +425,7 @@
 
 Peel back the layers; feel something, feel nothing, enjoy it, or wonder how she got there. Art is Bre’s way to share a bit of herself with the world and to show gratitude to the universe. Acrylic paints, oil pastels, charcoal mediums, and a variety of musical genres assist in sharing her art. Painting is Bre’s connection to others, and we can never be connected enough.
       </p>
-      <a href="#" class="cta-button">Learn More About Me ➞</a>
+      <a href="#" class="wt-cta-button">Learn More About Me ➞</a>
     </div>
     <div class="image-section">
       <img src="./asset/Photo-16.jpg" alt="Amanda Hawk">
@@ -187,24 +433,79 @@ Peel back the layers; feel something, feel nothing, enjoy it, or wonder how she 
   </div>
 
   <!-- second section -->
-   <div class="custom-image-wrapper">
-    <div class="custom-image-column">
-      <div class="custom-image-box">
-        <img src="asset/Photo-16.jpg" alt="Image 1" />
-      </div>
-      <div class="custom-image-box">
-        <img src="./asset/IMG_2952.jpg" alt="Image 2" />
-      </div>
+
+  <div id="my-projects"> <h2 class="custom-section-heading">My Projects</h2>
+
+  <div class="custom-image-wrapper">
+    <!-- Row 1 -->
+    <div class="custom-image-box">
+      <img src="./asset/IMG_2949.jpg" alt="Image 1" />
     </div>
-    <div class="custom-image-column">
-      <div class="custom-image-box">
-        <img src="./asset/Photo-16.jpg" alt="Image 3" />
-      </div>
-      <div class="custom-image-box">
-        <img src="./asset/Photo-16.jpg" alt="Image 4" />
-      </div>
+    <div class="custom-image-box">
+      <img src="./asset/IMG_2952.jpg" alt="Image 2" />
+    </div>
+    <div class="custom-image-box">
+      <img src="./asset/IMG_4609.jpg" alt="Image 3" />
+    </div>
+    <div class="custom-image-box">
+      <img src="./asset/IMG_8570.JPG" alt="Image 4" />
+    </div>
+
+    <!-- Row 2 -->
+    <div class="custom-image-box">
+      <img src="./asset/Photo-16.jpg" alt="Image 5" />
+    </div>
+    <div class="custom-image-box">
+      <img src="./asset/Copy of IMG_2946.jpg" alt="Image 6" />
+    </div>
+    <div class="custom-image-box">
+      <img src="./asset/IMG_1737.jpg" alt="Image 7" />
+    </div>
+    <div class="custom-image-box">
+      <img src="./asset/IMG_1735.jpg" alt="Image 8" />
     </div>
   </div>
+  </div>
+
+
+  <footer class="wbet-cstm-footer-container">
+    <div class="wbet-cstm-footer-grid">
+      <!-- Column 1: Inquiry -->
+      <div class="wbet-cstm-footer-column">
+        <h4>Interested in a Custom Piece?</h4>
+        <p>Happy to chat about a client’s wishes.</p>
+        <p><strong>bresmithart@gmail.com</strong></p>
+      </div>
+
+      <!-- Column 2: Navigation -->
+      <div class="wbet-cstm-footer-column wbet-cstm-footer-links">
+        <h4>Bresmith</h4>
+        <a href="#">Home</a>
+        <a href="#about-me">About Me</a>
+        <a href="#my-projects">My Work</a>
+      </div>
+    </div>
+
+    <!-- Bottom Note -->
+    <div class="wbet-cstm-footer-bottom">
+      ©2025 BRESMITH — DEVELOPED BY <a href="https://webiators.com/"> WEBIATORS</a>
+    </div>
+  </footer>
+
+  <script>
+  const toggle = document.getElementById("menu-toggle");
+  const menu = document.getElementById("menu");
+
+  toggle.addEventListener("click", () => {
+    menu.classList.toggle("show");
+  });
+
+  document.querySelectorAll("#menu a").forEach(link => {
+    link.addEventListener("click", () => {
+      menu.classList.remove("show");
+    });
+  });
+</script>
 
 </body>
 </html>
